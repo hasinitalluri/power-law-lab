@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Power Law Lab</title>
+<meta name="description" content="Simulate thousands of venture funds and see why one startup can return the whole fund.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="wrap">
+<h1>Power Law Lab</h1>
+<p class="lede">Venture investors expect most startups to fail and a few to win big. This simulator runs 3,000 imaginary funds so you can see what that does to the odds.</p>
+</header>
+
+<main class="wrap">
+<section class="panel controls">
+<label>Startups in the fund <b id="nV"></b><input id="n" type="range" min="5" max="60" value="25"></label>
+<label>Startups that lose everything <b id="bV"></b><input id="b" type="range" min="40" max="80" value="60"></label>
+<label>Startups that become home runs <b id="hV"></b><input id="h" type="range" min="0" max="3" step="0.1" value="0.5"></label>
+</section>
+
+<section class="tiles" id="tiles"></section>
+
+<section class="panel">
+<h2>How 3,000 funds turned out</h2>
+<p class="help">Each bar counts funds by how many times they returned the money invested. Funds left of the line lost money.</p>
+<svg id="hist" viewBox="0 0 680 260" role="img" aria-label="Histogram of fund return multiples"></svg>
+</section>
+
+<section class="panel">
+<div class="head"><h2>One fund, drawn</h2><button id="again">Draw another fund</button></div>
+<p class="help">Each circle is a startup. Circle area is its return, and hollow dots lost everything.</p>
+<div class="field" id="field"></div>
+<p class="result" id="fieldMsg"></p>
+</section>
+
+<section class="panel">
+<h2>Why investors make many bets</h2>
+<p class="help">Same odds as above, different fund sizes.</p>
+<table id="table"></table>
+</section>
+
+<details class="panel"><summary>Assumptions</summary>
+<p>Every dollar goes into equal checks. Each startup lands in one outcome: lose everything (0x), break even (0.3x to 1.5x), good (2x to 6x), great (6x to 25x), or a home run (30x to 200x). You set the loss and home run odds, and the rest is split among the middle outcomes in a fixed ratio. With the default odds, the average startup returns about 1.4x.</p>
+<p>These numbers are illustrative and are not taken from real fund data. Results ignore fees, time, and follow-on investing. Change the odds in <code>model.js</code> to test your own beliefs.</p></details>
+</main>
+<footer class="wrap">Built by Hasini Talluri, Rutgers Business School ’29, for the Road to Silicon Valley Program application · <a href="https://www.linkedin.com/in/hasinitalluri/">LinkedIn</a></footer>
+<script src="model.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
