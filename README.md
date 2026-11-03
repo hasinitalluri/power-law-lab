@@ -67,3 +67,4 @@ node -e "const PL=require('./model.js');console.log(PL.simulate(25,PL.probs(.6,.
 - Add a unit test comparing `model.js` and `simulate.py` results
 
 Built by Hasini Talluri · [LinkedIn](https://www.linkedin.com/in/hasinitalluri/) · MIT License
+
